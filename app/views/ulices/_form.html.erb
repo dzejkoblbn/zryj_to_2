@@ -1,0 +1,32 @@
+<%= form_with(model: ulice, local: true) do |form| %>
+  <% if ulice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ulice.errors.count, "error") %> prohibited this ulice from being saved:</h2>
+
+      <ul>
+      <% ulice.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_ulicy %>
+    <%= form.number_field :id_ulicy, id: :ulice_id_ulicy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nazwa_ulicy %>
+    <%= form.text_field :nazwa_ulicy, id: :ulice_nazwa_ulicy %>
+  </div>
+
+  <div class="field">
+    <%= form.label :obszary_id %>
+    <%= form.text_field :obszary_id, id: :ulice_obszary_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

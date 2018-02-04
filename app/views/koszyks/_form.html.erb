@@ -1,0 +1,22 @@
+<%= form_with(model: koszyk, local: true) do |form| %>
+  <% if koszyk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(koszyk.errors.count, "error") %> prohibited this koszyk from being saved:</h2>
+
+      <ul>
+      <% koszyk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :liczba_sztuk %>
+    <%= form.number_field :liczba_sztuk, id: :koszyk_liczba_sztuk %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

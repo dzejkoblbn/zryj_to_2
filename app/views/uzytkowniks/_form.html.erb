@@ -1,0 +1,62 @@
+<%= form_with(model: uzytkownik, local: true) do |form| %>
+  <% if uzytkownik.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(uzytkownik.errors.count, "error") %> prohibited this uzytkownik from being saved:</h2>
+
+      <ul>
+      <% uzytkownik.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :index %>
+    <%= form.number_field :index, id: :uzytkownik_index %>
+  </div>
+
+  <div class="field">
+    <%= form.label :imie %>
+    <%= form.text_field :imie, id: :uzytkownik_imie %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nazwisko %>
+    <%= form.text_field :nazwisko, id: :uzytkownik_nazwisko %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kod_pocztowy_u %>
+    <%= form.text_field :kod_pocztowy_u, id: :uzytkownik_kod_pocztowy_u %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ulica_u %>
+    <%= form.text_field :ulica_u, id: :uzytkownik_ulica_u %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nr_budynku_u %>
+    <%= form.text_field :nr_budynku_u, id: :uzytkownik_nr_budynku_u %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nr_mieszkania_u %>
+    <%= form.text_field :nr_mieszkania_u, id: :uzytkownik_nr_mieszkania_u %>
+  </div>
+
+  <div class="field">
+    <%= form.label :typ_id %>
+    <%= form.text_field :typ_id, id: :uzytkownik_typ_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :zamowienie_id %>
+    <%= form.text_field :zamowienie_id, id: :uzytkownik_zamowienie_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

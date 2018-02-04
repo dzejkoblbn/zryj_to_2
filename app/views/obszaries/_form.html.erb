@@ -1,0 +1,22 @@
+<%= form_with(model: obszary, local: true) do |form| %>
+  <% if obszary.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(obszary.errors.count, "error") %> prohibited this obszary from being saved:</h2>
+
+      <ul>
+      <% obszary.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :kod_pocztowy %>
+    <%= form.text_field :kod_pocztowy, id: :obszary_kod_pocztowy %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

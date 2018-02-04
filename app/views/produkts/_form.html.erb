@@ -1,0 +1,52 @@
+<%= form_with(model: produkt, local: true) do |form| %>
+  <% if produkt.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(produkt.errors.count, "error") %> prohibited this produkt from being saved:</h2>
+
+      <ul>
+      <% produkt.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_produktu %>
+    <%= form.number_field :id_produktu, id: :produkt_id_produktu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nazwa_produktu %>
+    <%= form.text_field :nazwa_produktu, id: :produkt_nazwa_produktu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :opis_produktu %>
+    <%= form.text_field :opis_produktu, id: :produkt_opis_produktu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :czas_przygotowania %>
+    <%= form.text_field :czas_przygotowania, id: :produkt_czas_przygotowania %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cena %>
+    <%= form.text_field :cena, id: :produkt_cena %>
+  </div>
+
+  <div class="field">
+    <%= form.label :restauracja_id %>
+    <%= form.text_field :restauracja_id, id: :produkt_restauracja_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :koszyk_id %>
+    <%= form.text_field :koszyk_id, id: :produkt_koszyk_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

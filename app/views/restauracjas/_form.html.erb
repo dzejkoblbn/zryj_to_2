@@ -1,0 +1,52 @@
+<%= form_with(model: restauracja, local: true) do |form| %>
+  <% if restauracja.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(restauracja.errors.count, "error") %> prohibited this restauracja from being saved:</h2>
+
+      <ul>
+      <% restauracja.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_restauracji %>
+    <%= form.number_field :id_restauracji, id: :restauracja_id_restauracji %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nazwa_restauracji %>
+    <%= form.text_field :nazwa_restauracji, id: :restauracja_nazwa_restauracji %>
+  </div>
+
+  <div class="field">
+    <%= form.label :opis_restauracji %>
+    <%= form.text_field :opis_restauracji, id: :restauracja_opis_restauracji %>
+  </div>
+
+  <div class="field">
+    <%= form.label :kod_pocztowy_r %>
+    <%= form.text_field :kod_pocztowy_r, id: :restauracja_kod_pocztowy_r %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ulica_r %>
+    <%= form.text_field :ulica_r, id: :restauracja_ulica_r %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numer_budynku_r %>
+    <%= form.text_field :numer_budynku_r, id: :restauracja_numer_budynku_r %>
+  </div>
+
+  <div class="field">
+    <%= form.label :numer_lokalu_r %>
+    <%= form.text_field :numer_lokalu_r, id: :restauracja_numer_lokalu_r %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

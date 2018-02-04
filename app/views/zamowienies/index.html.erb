@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Zamowienies</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Id zamowienia</th>
+      <th>Data zamowienia</th>
+      <th>Czas realizacji</th>
+      <th>Koszt</th>
+      <th>Koszyk</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @zamowienies.each do |zamowieny| %>
+      <tr>
+        <td><%= zamowieny.id_zamowienia %></td>
+        <td><%= zamowieny.data_zamowienia %></td>
+        <td><%= zamowieny.czas_realizacji %></td>
+        <td><%= zamowieny.koszt %></td>
+        <td><%= zamowieny.koszyk %></td>
+        <td><%= link_to 'Show', zamowieny %></td>
+        <td><%= link_to 'Edit', edit_zamowieny_path(zamowieny) %></td>
+        <td><%= link_to 'Destroy', zamowieny, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Zamowieny', new_zamowieny_path %>

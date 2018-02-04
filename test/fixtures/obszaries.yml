@@ -1,0 +1,7 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kod_pocztowy: MyString
+
+two:
+  kod_pocztowy: MyString

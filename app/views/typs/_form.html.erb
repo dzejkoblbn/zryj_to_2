@@ -1,0 +1,27 @@
+<%= form_with(model: typ, local: true) do |form| %>
+  <% if typ.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(typ.errors.count, "error") %> prohibited this typ from being saved:</h2>
+
+      <ul>
+      <% typ.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_typu %>
+    <%= form.number_field :id_typu, id: :typ_id_typu %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nazwa_typu %>
+    <%= form.text_field :nazwa_typu, id: :typ_nazwa_typu %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

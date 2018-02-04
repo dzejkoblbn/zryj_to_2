@@ -1,0 +1,42 @@
+<%= form_with(model: zamowieny, local: true) do |form| %>
+  <% if zamowieny.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(zamowieny.errors.count, "error") %> prohibited this zamowieny from being saved:</h2>
+
+      <ul>
+      <% zamowieny.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id_zamowienia %>
+    <%= form.number_field :id_zamowienia, id: :zamowieny_id_zamowienia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :data_zamowienia %>
+    <%= form.date_select :data_zamowienia, id: :zamowieny_data_zamowienia %>
+  </div>
+
+  <div class="field">
+    <%= form.label :czas_realizacji %>
+    <%= form.text_field :czas_realizacji, id: :zamowieny_czas_realizacji %>
+  </div>
+
+  <div class="field">
+    <%= form.label :koszt %>
+    <%= form.text_field :koszt, id: :zamowieny_koszt %>
+  </div>
+
+  <div class="field">
+    <%= form.label :koszyk_id %>
+    <%= form.text_field :koszyk_id, id: :zamowieny_koszyk_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

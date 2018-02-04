@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Uzytkowniks</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Index</th>
+      <th>Imie</th>
+      <th>Nazwisko</th>
+      <th>Kod pocztowy u</th>
+      <th>Ulica u</th>
+      <th>Nr budynku u</th>
+      <th>Nr mieszkania u</th>
+      <th>Typ</th>
+      <th>Zamowienie</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @uzytkowniks.each do |uzytkownik| %>
+      <tr>
+        <td><%= uzytkownik.index %></td>
+        <td><%= uzytkownik.imie %></td>
+        <td><%= uzytkownik.nazwisko %></td>
+        <td><%= uzytkownik.kod_pocztowy_u %></td>
+        <td><%= uzytkownik.ulica_u %></td>
+        <td><%= uzytkownik.nr_budynku_u %></td>
+        <td><%= uzytkownik.nr_mieszkania_u %></td>
+        <td><%= uzytkownik.typ %></td>
+        <td><%= uzytkownik.zamowienie %></td>
+        <td><%= link_to 'Show', uzytkownik %></td>
+        <td><%= link_to 'Edit', edit_uzytkownik_path(uzytkownik) %></td>
+        <td><%= link_to 'Destroy', uzytkownik, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Uzytkownik', new_uzytkownik_path %>

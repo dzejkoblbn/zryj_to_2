@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Liczba sztuk:</strong>
+  <%= @koszyk.liczba_sztuk %>
+</p>
+
+<%= link_to 'Edit', edit_koszyk_path(@koszyk) %> |
+<%= link_to 'Back', koszyks_path %>

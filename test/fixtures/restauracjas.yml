@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id_restauracji: 1
+  nazwa_restauracji: MyString
+  opis_restauracji: MyString
+  kod_pocztowy_r: MyString
+  ulica_r: MyString
+  numer_budynku_r: MyString
+  numer_lokalu_r: MyString
+
+two:
+  id_restauracji: 1
+  nazwa_restauracji: MyString
+  opis_restauracji: MyString
+  kod_pocztowy_r: MyString
+  ulica_r: MyString
+  numer_budynku_r: MyString
+  numer_lokalu_r: MyString
