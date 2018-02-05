@@ -69,6 +69,6 @@ class UzytkowniksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def uzytkownik_params
-      params.require(:uzytkownik).permit(:index, :imie, :nazwisko, :kod_pocztowy_u, :ulica_u, :nr_budynku_u, :nr_mieszkania_u, :typ_id, :zamowienie_id)
+      params.require(:uzytkownik).permit(:index, :imie, :nazwisko, :kod_pocztowy_u, :ulica_u, :nr_budynku_u, :nr_mieszkania_u, :typ_id, :zamowienie_id, :password, :password_confirmation)
     end
 end

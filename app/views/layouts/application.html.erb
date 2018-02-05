@@ -9,6 +9,22 @@
   </head>
 
   <body>
+  <ul>
+    <li><%= link_to "Strona główna", root_path %></li>
+    <li><%= link_to "Restauracje", restauracjas_path %></li>
+    <li><%= link_to "Ulice", ulices_path %></li>
+    <li><%= link_to "Obszary", obszaries_path %></li>
+    <li><%= link_to "Typy uzytkownika", typs_path %></li>
+    <li><%= link_to "Produkty", produkts_path %></li>
+
+    <li><%= link_to "Uzytkownicy", uzytkowniks_path %></li>
+    <% if logged_in? %>
+      <li><%= link_to current_uzytkownik.imie, current_student %></li>
+      <li><%= link_to "Wyloguj", logout_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to "Zaloguj", login_path %></li>
+    <% end %>
+  </ul>
     <%= yield %>
   </body>
 </html>

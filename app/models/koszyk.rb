@@ -1,4 +1,4 @@
 class Koszyk < ApplicationRecord
-  has_many :zamowienies
   has_many :produkts
+  has_many :zamowienies
 end

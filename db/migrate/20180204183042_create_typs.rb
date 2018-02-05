@@ -1,7 +1,7 @@
 class CreateTyps < ActiveRecord::Migration[5.1]
   def change
-    create_table :typs do |t|
-      t.integer :id_typu
+    create_table :typs, id: false do |t|
+      t.primary_key :id_typu
       t.string :nazwa_typu
 
       t.timestamps

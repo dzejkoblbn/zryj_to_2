@@ -10,16 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180204194515) do
+ActiveRecord::Schema.define(version: 20180205164441) do
 
   create_table "koszyks", force: :cascade do |t|
     t.integer "liczba_sztuk"
+    t.integer "id_produktu"
+    t.integer "id_zamowienia"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "obszaries", force: :cascade do |t|
+  create_table "obszaries", primary_key: "id_obszaru", force: :cascade do |t|
     t.string "kod_pocztowy"
+    t.integer "id_restauracji"
+    t.integer "id_ulicy"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -31,28 +35,29 @@ ActiveRecord::Schema.define(version: 20180204194515) do
     t.index ["restauracja_id"], name: "index_obszaries_restacjas_on_restauracja_id"
   end
 
-  create_table "produkts", force: :cascade do |t|
-    t.integer "id_produktu"
+  create_table "produkts", primary_key: "id_produktu", force: :cascade do |t|
     t.string "nazwa_produktu"
     t.string "opis_produktu"
     t.float "czas_przygotowania"
     t.float "cena"
     t.integer "restauracja_id"
     t.integer "koszyk_id"
+    t.integer "id_restauracji"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["koszyk_id"], name: "index_produkts_on_koszyk_id"
     t.index ["restauracja_id"], name: "index_produkts_on_restauracja_id"
   end
 
-  create_table "restauracjas", force: :cascade do |t|
-    t.integer "id_restauracji"
+  create_table "restauracjas", primary_key: "id_restauracji", force: :cascade do |t|
     t.string "nazwa_restauracji"
     t.string "opis_restauracji"
     t.string "kod_pocztowy_r"
     t.string "ulica_r"
     t.string "numer_budynku_r"
     t.string "numer_lokalu_r"
+    t.integer "index"
+    t.integer "id_obszaru"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -64,24 +69,22 @@ ActiveRecord::Schema.define(version: 20180204194515) do
     t.index ["uzytkownik_id"], name: "index_restauracjas_uzytkowniks_on_uzytkownik_id"
   end
 
-  create_table "typs", force: :cascade do |t|
-    t.integer "id_typu"
+  create_table "typs", primary_key: "id_typu", force: :cascade do |t|
     t.string "nazwa_typu"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "ulices", force: :cascade do |t|
-    t.integer "id_ulicy"
+  create_table "ulices", primary_key: "id_ulicy", force: :cascade do |t|
     t.string "nazwa_ulicy"
     t.integer "obszary_id"
+    t.integer "id_obszaru"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["obszary_id"], name: "index_ulices_on_obszary_id"
   end
 
-  create_table "uzytkowniks", force: :cascade do |t|
-    t.integer "index"
+  create_table "uzytkowniks", primary_key: "index", force: :cascade do |t|
     t.string "imie"
     t.string "nazwisko"
     t.string "kod_pocztowy_u"
@@ -90,17 +93,21 @@ ActiveRecord::Schema.define(version: 20180204194515) do
     t.string "nr_mieszkania_u"
     t.integer "typ_id"
     t.integer "zamowienie_id"
+    t.integer "id_typu"
+    t.integer "id_restauracji"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_digest"
+    t.index ["index"], name: "index_uzytkowniks_on_index", unique: true
     t.index ["typ_id"], name: "index_uzytkowniks_on_typ_id"
     t.index ["zamowienie_id"], name: "index_uzytkowniks_on_zamowienie_id"
   end
 
-  create_table "zamowienies", force: :cascade do |t|
-    t.integer "id_zamowienia"
+  create_table "zamowienies", primary_key: "id_zamowienia", force: :cascade do |t|
     t.date "data_zamowienia"
     t.float "czas_realizacji"
     t.float "koszt"
+    t.integer "index"
     t.integer "koszyk_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
